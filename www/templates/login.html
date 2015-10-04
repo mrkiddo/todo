@@ -1,0 +1,27 @@
+<ion-view view-title="Sign In">
+  <ion-content>
+    <div class="padding"><h5 style="color:red;" ng-show="error" ng-bind="error"></h5></div>
+    <div class="padding">
+      <h3>Todo List</h3>
+    </div>
+    <div class="list">
+	  <label class="item item-input">
+	    <span class="input-label">Email</span>
+	    <input type="email" ng-model="$parent.email">
+	  </label>
+	  <label class="item item-input">
+	    <span class="input-label">Password</span>
+	    <input type="password" ng-model="$parent.passwd">
+	  </label>
+	  <div class="padding"> 
+	    <button class="button button-block button-balanced" ng-disabled="!(email&&passwd)" ng-click="login()">
+	      Sign-in
+	    </button>
+	  </div>
+	  <br>
+	</div>
+	<div class="padding" style="text-align:right;">
+	  <h4>Not a member? Please <a href="#/signup">Sign UP</a> here.</h4>
+	</div>
+  </ion-content>
+</ion-view>
