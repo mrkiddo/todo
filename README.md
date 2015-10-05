@@ -30,6 +30,10 @@ your email address and password.
 ### Project report
 Non-technical [project report] (https://github.com/mrkiddo/todo/blob/master/report.md) can be accessed here.
 
+### Data Dictionary
+##### A brief data dictionary for this project, a "todo-items" table is used to store all the records from users.
+![data](http://i11.tietuku.com/3dc31ad9dea036ce.jpg)
+
 ### Screenshots
 #####Todo list view
 ![Todo list view](http://i11.tietuku.com/7c1403ad4a8bdb11.jpg)
