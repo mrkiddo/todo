@@ -8,9 +8,9 @@ angular.module('starter.controllers', [])
     $scope.authData = authData;
   });
 
-    //login method for login btn
-    //if login successfully, navigate to votes list
-    //otherwise, display error message
+    // login method for login btn
+    // if login successfully, navigate to main list
+    // otherwise, display error message
     $scope.login = function(){
       $scope.Auth.login($scope.email, $scope.passwd)
       .then(function(authData){
@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
     }
 
 })
-
+// controller for user register view
 .controller('SignupCtrl', function($scope, $state, userService){
 
   $scope.Auth = userService;
@@ -45,13 +45,16 @@ angular.module('starter.controllers', [])
     });
   }
 })
-
+// controller for to-do list view
 .controller('TodoCtrl', function($scope, currentAuth, todoService, $ionicModal, $ionicLoading) {
-
+  
+  // obtain user mail from router resovle service
+  // set `onload` to false for ionic modal
   $scope.todoService = todoService;
   $scope.email = currentAuth.password.email;
   $scope.onload = false;
 
+  // instantiate a ionic modal
   $ionicModal.fromTemplateUrl('my-modal.html', {
     scope: $scope,
     animation: 'slide-in-up',
@@ -60,27 +63,33 @@ angular.module('starter.controllers', [])
     $scope.modal = modal;
   });
 
+  // show loading effect while data is loading
   $scope.showLoading = function(){
     $ionicLoading.show({template: "Trying hard to load data ..."});
   }
-
+  
+  // hide loading effect
   $scope.hideLoading = function(){
     $ionicLoading.hide();
   }
 
+  // open modal method
   $scope.openModal = function(){
     $scope.form = {};
     $scope.modal.show();
   }
 
+  // close modal method
   $scope.closeModal = function(){
     $scope.modal.hide();
   }
 
+  // remove the whole modal from DOM after the page is destoryed
   $scope.$on('$destory', function(){
     $scope.modal.remove();
   });
 
+  // event handler for `model.hidden`
   $scope.$on('modal.hidden', function(){
     //$scope.clean();
     //$scope.modal.remove();
@@ -89,6 +98,7 @@ angular.module('starter.controllers', [])
   $scope.$on('modal.removed', function(){
   });
 
+  // handler for delete a to-do item
   $scope.delete = function(index, position){
     $scope.showLoading();
     console.log(index);
@@ -107,6 +117,7 @@ angular.module('starter.controllers', [])
     });
   };
 
+  // handler for change the state of an item
   $scope.change = function(index, state){
     console.log(index, state);
     $scope.todoService.change(index, state).then(function(response){
@@ -114,6 +125,7 @@ angular.module('starter.controllers', [])
     });
   }
 
+  // handler for refresh the view if it is necessary
   $scope.refresh = function(){
     $scope.showLoading();
     $scope.todoService.all($scope.email).then(function(response){
@@ -131,6 +143,7 @@ angular.module('starter.controllers', [])
     });
   }
 
+  // handler for create a new item
   $scope.create = function(form){
     console.log($scope.form);
     $scope.onload = true;
@@ -163,6 +176,7 @@ angular.module('starter.controllers', [])
 
   $scope.showLoading();
 
+  // load all the to-do item for a user when page is first loaded
   $scope.todoService.all($scope.email).then(function(response){
     console.log(response.data);
     if(response.data.empty){
@@ -179,12 +193,13 @@ angular.module('starter.controllers', [])
     $scope.hideLoading();
   });
 })
-
+// controller for account view
 .controller('AccountCtrl', function($scope, $state, currentAuth, userService, $ionicHistory) {
 
   $scope.userService = userService;
   $scope.email = currentAuth.password.email;
 
+  // handler for user log-out
   $scope.logout = function(){
     $scope.userService.logout();
     $ionicHistory.clearCache().then(function(){
