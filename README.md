@@ -2,7 +2,7 @@
 A basic to-do list project for the technical interview. 
 
 ### Author
-[Jiawei Luo](http://mrkiddo.github.io)
+[Jiawei Luo](http://mrkiddo.github.io) <jluo3036@gmail.com>
 
 ### Technical Features
 
@@ -14,7 +14,7 @@ A basic to-do list project for the technical interview.
 
 1. Download the file and unzip the folder "todo" under Mac OS X
 2. Open Terminal and type following command*.
-`ionic build ios` then `ionic run ios` The app will run on a iOS simulator. 
+First, use `cordova platform add ios`, then `ionic build ios` followed by `ionic run ios` The app will run on a iOS simulator. 
 Besides, you can test on the browser `ionic serve`
   
   *Here assume you already install ionic/cordova cli as well as XCode. 
