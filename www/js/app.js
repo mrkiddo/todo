@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
-      // and redirect the user back to the home page
+      // and redirect the user back to the login page
       if (error === "AUTH_REQUIRED") {
         console.log("require auth info");
         $state.go("login");
@@ -65,6 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
+  // setup the `todo` state - main view
   .state('tab.todo', {
     url: '/todo',
     views: {
@@ -73,6 +74,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'TodoCtrl'
       }
     },
+    // check user auth state before router resolve
+    // return a promise
+    // if user not authorized, broadcast a `state change error` event
     resolve: {
       currentAuth: function(userService) {
         return userService.auth.$requireAuth();
@@ -80,6 +84,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  // setup `account` state
   .state('tab.account', {
     url: '/account',
     cache: false,
