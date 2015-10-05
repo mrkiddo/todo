@@ -8,6 +8,7 @@ A basic to-do list project for the technical interview.
 
 * Hybrid application for iOS based on Ionic/Cordova framework
 * Back-end based on PHP and MySQL, [back-end script](https://github.com/mrkiddo/todo/tree/master/php) can be accessed in php folder
+* User authorization part is based on the service from [Firebase](https://www.firebase.com/) to provide more sophisticated user control 
 
 ### Fast installation
 
