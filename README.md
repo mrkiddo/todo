@@ -7,7 +7,7 @@ A basic to-do list project for the technical interview.
 ### Technical Features
 
 * Hybrid application for iOS based on Ionic/Cordova framework
-* Back-end based on PHP and MySQL
+* Back-end based on PHP and MySQL, [back-end script](https://github.com/mrkiddo/todo/tree/master/php) can be accessed in php folder
 
 ### Fast installation
 
